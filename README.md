@@ -18,6 +18,51 @@ Proyecto de automatización de navegador para practicar pruebas/acciones end-to-
 ## Capturas/GIF
 https://www.loom.com/share/6ba0c20771854131bc90f07717bd8643
 
+## Project structure
+src/test/java
+  pages/        -> Page Objects (una clase por pantalla)
+  tests/        -> Test suites
+  utils/        -> helpers (waits, config, driver factory)
+src/test/resources
+  config/       -> propiedades (baseUrl, browser, headless)
+
+- Page Objects: encapsulan selectores + acciones de cada pantalla.
+- Los tests no tocan By.cssSelector(...) directamente: llaman a métodos del page.
+
+## Mini ejemplo
+// pages/LoginPage.java
+public class LoginPage {
+  private WebDriver driver;
+  private By user = By.id("username");
+  private By pass = By.id("password");
+  private By loginBtn = By.cssSelector("button[type='submit']");
+
+  public LoginPage(WebDriver driver){ this.driver = driver; }
+
+  public LoginPage typeUser(String u){ driver.findElement(user).sendKeys(u); return this; }
+  public LoginPage typePass(String p){ driver.findElement(pass).sendKeys(p); return this; }
+  public HomePage submit(){ driver.findElement(loginBtn).click(); return new HomePage(driver); }
+}
+
+Maven:
+mvn test
+un test concreto:
+mvn -Dtest=LoginTest test
+
+Gradle
+./gradlew test
+un test concreto:
+./gradlew test --tests LoginTest
+
+Y si tienes configuración de navegador/headless:
+- “Por defecto: Chrome headless”
+- “Cambiar a Firefox: -Dbrowser=firefox”
+- “Cambiar baseUrl: -DbaseUrl=https://...”
+
+Ejemplo:
+mvn test -Dbrowser=chrome -Dheadless=true -DbaseUrl=https://example.com
+
+
 ## Cómo ejecutar
 1. Clona el repositorio
 2. Instala dependencias:
