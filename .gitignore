@@ -1,29 +1,25 @@
-### IntelliJ IDEA ###
+# Build outputs
+target/
+build/
 out/
-!**/src/main/**/out/
-!**/src/test/**/out/
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
+# IntelliJ
+.idea/
+*.iml
+
+# Eclipse
 .project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+.classpath
+.settings/
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
-.vscode/
-
-### Mac OS ###
+# OS
 .DS_Store
+Thumbs.db
+
+# Logs & reports (ajusta según uses)
+*.log
+allure-results/
+allure-report/
+test-output/
+reports/
+screenshots/
