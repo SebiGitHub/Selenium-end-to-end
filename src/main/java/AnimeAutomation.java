@@ -31,7 +31,6 @@ public class AnimeAutomation {
         String episodio = scanner.nextLine();
 
         // Configuración del WebDriver para Chrome
-        System.setProperty("webdriver.chrome.driver", "C:\\Desa\\Librerias\\Java\\selenium\\chromedriver-win64\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized"); // Inicia el navegador en modo maximizado
         options.addArguments("--disable-blink-features=AutomationControlled"); // Evita la detección de automatización
@@ -117,7 +116,7 @@ public class AnimeAutomation {
                 }
 
                 // Guarda la información extraída en un archivo CSV
-                DataSaver.saveRecord("C:\\Users\\Sebas\\IdeaProjects\\Selenium2\\archivo.csv", title, followers, description);
+                DataSaver.saveRecord(System.getProperty("user.dir") + File.separator + "archivo.csv", title, followers, description);
 
                 // Navega de regreso a la página de resultados para procesar el siguiente
                 driver.navigate().back();
@@ -180,7 +179,7 @@ public class AnimeAutomation {
             String fileName = baseName + screenshotCounter + ".png";
             screenshotCounter++;
             // Define la ruta de destino para la captura
-            File destFile = new File("C:\\Users\\Sebas\\IdeaProjects\\Selenium2\\" + fileName);
+            File destFile = new File(System.getProperty("user.dir") + File.separator + fileName);
             destFile.getParentFile().mkdirs(); // Crea los directorios necesarios si no existen
             // Copia el archivo de la captura a la ubicación de destino
             Files.copy(srcFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
@@ -194,12 +193,19 @@ public class AnimeAutomation {
 // Clase auxiliar para guardar registros en un archivo CSV
 class DataSaver {
     public static void saveRecord(String filePath, String title, String followers, String description) {
-        try (FileWriter writer = new FileWriter(filePath, true)) { // Abre el archivo en modo append para no sobrescribir datos
-            writer.append(title).append(",");
-            writer.append(followers).append(",");
-            writer.append(description).append("\n");
+        try (FileWriter writer = new FileWriter(filePath, true)) {
+            writer.append(csv(title)).append(",");
+            writer.append(csv(followers)).append(",");
+            writer.append(csv(description)).append("\n");
         } catch (IOException e) {
             System.err.println("Error al guardar los datos: " + e.getMessage());
         }
     }
+
+    private static String csv(String s) {
+        if (s == null) return "\"\"";
+        s = s.replace("\"", "\"\"");
+        return "\"" + s + "\"";
+    }
 }
+
