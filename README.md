@@ -24,7 +24,7 @@ https://www.loom.com/share/6ba0c20771854131bc90f07717bd8643
      ```bash
      pip install -r requirements.txt
      ```
-   - o Java (si aplica): `mvn test` / `gradle test`
+   - o Java: `mvn test` / `gradle test`
 3. Asegúrate de tener el driver del navegador configurado
 4. Ejecuta los tests:
    - `pytest` / `python -m unittest` / `mvn test`
