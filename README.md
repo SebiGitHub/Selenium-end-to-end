@@ -15,9 +15,7 @@ Proyecto de automatización de navegador para practicar pruebas/acciones end-to-
 - Estructura por páginas (Page Objects) para mantener el código limpio
 
 ## Capturas/GIF
-> Añade 2–4 capturas o un GIF de una ejecución.
-- `/docs/screenshots/run.png` [TODO]
-- `/docs/gif/demo.gif` [TODO]
+https://www.loom.com/share/6ba0c20771854131bc90f07717bd8643
 
 ## Cómo ejecutar
 1. Clona el repositorio
