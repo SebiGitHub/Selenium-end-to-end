@@ -1,4 +1,5 @@
-# Selenium2
+# Selenium-end-to-end
+
 
 ## Qué es
 Proyecto de automatización de navegador para practicar pruebas/acciones end-to-end con Selenium sobre páginas web.
