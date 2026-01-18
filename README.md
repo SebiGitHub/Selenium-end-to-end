@@ -6,8 +6,9 @@ Proyecto de automatización de navegador para practicar pruebas/acciones end-to-
 
 ## Stack
 - Selenium WebDriver
-- Lenguaje: Java
-- Framework: JUnit/IntelIDEA
+- Testing (JUnit)
+- Build (Maven/Gradle)
+- IDE (IntelliJ IDEA).
 - Navegador/driver: ChromeDriver
 
 ## Features
