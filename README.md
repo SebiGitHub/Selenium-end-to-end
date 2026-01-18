@@ -7,7 +7,7 @@ Proyecto de automatización de navegador para practicar pruebas/acciones end-to-
 ## Stack
 - Selenium WebDriver
 - Testing (JUnit)
-- Build (Maven/Gradle)
+- Build (Gradle)
 - IDE (IntelliJ IDEA).
 - Navegador/driver: ChromeDriver
 
