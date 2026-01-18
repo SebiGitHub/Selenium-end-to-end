@@ -20,17 +20,19 @@ Proyecto de automatización de navegador para practicar pruebas/acciones end-to-
 https://www.loom.com/share/6ba0c20771854131bc90f07717bd8643
 
 ## Project structure
+ ```
 src/test/java
   pages/        -> Page Objects (una clase por pantalla)
   tests/        -> Test suites
   utils/        -> helpers (waits, config, driver factory)
 src/test/resources
   config/       -> propiedades (baseUrl, browser, headless)
-
+ ```
 - Page Objects: encapsulan selectores + acciones de cada pantalla.
 - Los tests no tocan By.cssSelector(...) directamente: llaman a métodos del page.
 
 ## Mini ejemplo
+ ```
 // pages/LoginPage.java
 public class LoginPage {
   private WebDriver driver;
@@ -44,6 +46,7 @@ public class LoginPage {
   public LoginPage typePass(String p){ driver.findElement(pass).sendKeys(p); return this; }
   public HomePage submit(){ driver.findElement(loginBtn).click(); return new HomePage(driver); }
 }
+ ```
 
 Maven:
 mvn test
