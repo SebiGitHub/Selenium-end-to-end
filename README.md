@@ -66,19 +66,6 @@ Y si tienes configuración de navegador/headless:
 Ejemplo:
 mvn test -Dbrowser=chrome -Dheadless=true -DbaseUrl=https://example.com
 
-
-## Cómo ejecutar
-1. Clona el repositorio
-2. Instala dependencias:
-   - Python:
-     ```bash
-     pip install -r requirements.txt
-     ```
-   - o Java: `mvn test` / `gradle test`
-3. Asegúrate de tener el driver del navegador configurado
-4. Ejecuta los tests:
-   - `pytest` / `python -m unittest` / `mvn test`
-
 ## Qué aprendí
 - Automatización real con Selenium y buenas prácticas de estructura
 - Sincronización (waits) vs sleeps y estabilidad de tests
